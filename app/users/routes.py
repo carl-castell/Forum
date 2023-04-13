@@ -5,6 +5,8 @@ from flask_login import login_user, logout_user
 
 blueprint = Blueprint('users', __name__)
 
+# path of redirect after successful log in or registration
+
 @blueprint.get('/register')
 def get_register():
   return render_template('users/register.html')
@@ -24,7 +26,7 @@ def post_register():
     user.save()
     
     login_user(user)
-    return redirect(url_for('cookies.cookies'))
+    return redirect(url_for('posts.topics'))
 
   except Exception as error_message:
     error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
@@ -46,7 +48,7 @@ def post_login():
       raise Exception('The password does not appear to be correct.')
     
     login_user(user)
-    return redirect(url_for('cookies.cookies'))
+    return redirect(url_for('posts.topics'))
     
   except Exception as error_message:
     error = error_message or 'An error occurred while logging in. Please verify your email and password.'

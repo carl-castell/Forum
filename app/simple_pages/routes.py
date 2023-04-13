@@ -7,6 +7,10 @@ blueprint = Blueprint('simple_pages', __name__)
 def index():
   return render_template('index.html')
 
+@blueprint.route('/data')
+def datapreview():
+    return render_template('data.html')
+
 
 
 
