@@ -2,6 +2,9 @@ from flask import Blueprint, render_template, request, url_for, redirect
 from app.users.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user
+from app.extensions.authentication import login_manager
+
+
 
 blueprint = Blueprint('users', __name__)
 
@@ -61,3 +64,8 @@ def logout():
   logout_user()
 
   return redirect(url_for('users.get_login'))
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    # do stuff
+    return redirect(url_for('users.get_login'))
