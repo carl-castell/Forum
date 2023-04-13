@@ -7,6 +7,7 @@ from app.extensions.authentication import login_manager
 
 
 blueprint = Blueprint('users', __name__)
+try_unautorized = False
 
 # path of redirect after successful log in or registration
 
@@ -42,6 +43,7 @@ def get_login():
 
 @blueprint.post('/login')
 def post_login():
+
   try:
     user = User.query.filter_by(email=request.form.get('email')).first()
 
@@ -67,5 +69,5 @@ def logout():
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    # do stuff
-    return redirect(url_for('users.get_login'))
+    try_unautorized = True
+    return redirect(url_for('users.get_login'), try_unautorized = try_unautorized)

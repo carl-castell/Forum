@@ -3,6 +3,9 @@
 {% block title %}Cookieshop | Login{% endblock %}
 
 {% block body %}
+{% if try_unautorized == True %}
+  <h2>You need to log in</h2>
+{% endif %}
   <h1>Login</h1>
 
   <form method="POST">
