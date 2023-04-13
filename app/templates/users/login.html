@@ -3,9 +3,6 @@
 {% block title %}Cookieshop | Login{% endblock %}
 
 {% block body %}
-{% if try_unautorized == True %}
-  <h2>You need to log in</h2>
-{% endif %}
   <h1>Login</h1>
 
   <form method="POST">
@@ -20,6 +17,8 @@
     </div>
     
     <input type="submit" value="Login">
+    <a href="{{ url_for('users.get_register') }}">Register</a>
+
   </form>  
   {% if error %}
     <p style="color: tomato;">{{ error }}</p>

@@ -69,5 +69,4 @@ def logout():
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    try_unautorized = True
-    return redirect(url_for('users.get_login'), try_unautorized = try_unautorized)
+    return redirect(url_for('users.get_login'))
