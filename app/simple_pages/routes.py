@@ -1,5 +1,6 @@
 
 from flask import Blueprint, render_template, redirect, url_for, send_file
+from app.users.models import User
 
 blueprint = Blueprint('simple_pages', __name__)
 
@@ -9,7 +10,8 @@ def index():
 
 @blueprint.route('/data')
 def datapreview():
-    return render_template('data.html')
+  user_print=User.query.all()
+  return render_template('data.html', user_print=user_print)
 
 
 
