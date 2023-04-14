@@ -8,7 +8,8 @@
 <ul>
     {% for topic in topics %}
       <li>
-        <h3>{{ topic.title }} By: {{ user }}</h3>
+        <a href="/topics/show/{{ topic.Topic.id }}"><h3>{{ topic.Topic.id }} - {{ topic.Topic.title }} By: {{ topic.User.email }}</h3></a>
+        
       </li>
     {% endfor %}
   </ul>
