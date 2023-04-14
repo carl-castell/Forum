@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, current_app, request
 from .models import Topic
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 blueprint = Blueprint('posts', __name__)
 
@@ -18,4 +18,10 @@ def show_topic(id):
 @blueprint.get('/topics/new')
 #@login_required
 def new_topic():
+    return render_template('posts/new_topic.html')
+
+@blueprint.post('/topics/new')
+#@login_required
+def post_new_topic():
+    print(current_user.id)
     return render_template('posts/new_topic.html')
