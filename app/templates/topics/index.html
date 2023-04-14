@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Forum{% endblock %}
+
+{% block body %}
+    <h1>test</h1>
+{% endblock %}
+
+{% block footer %}
+<a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
+{% endblock %}
