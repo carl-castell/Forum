@@ -4,9 +4,7 @@
 
 {% block body %}
 
-    <h1>Show</h1>
-
-    <h2>Title:{{ topic_new.Topic.title }}</h2>
+    <h2>Title: {{ topic_new.Topic.title }}</h2>
     <p>by: {{ topic_new.User.email }}</p>
-    <p>Description{{ topic_new.Topic.description }}</p>
+    <p>{{ topic_new.Topic.description }}</p>
 {% endblock %}

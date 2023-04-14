@@ -1,28 +1,38 @@
 {% extends 'base.html' %}
-
+{% block stylesheet  %} <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}"> {% endblock %}
 {% block title %}Cookieshop | Register{% endblock %}
 
 {% block body %}
-  <h1>Register</h1>
 
-  <form method="POST">
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
+  <div class="wrapper">
+    <div class="title">
+      Register
     </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" required>
-    </div>
+    <form method="POST">
 
-    <div>
-      <label for="password_confirmation">Password Confirmation</label>
-      <input type="password" name="password_confirmation" id="password_confirmation" required>
-    </div>
-    
-    <input type="submit" value="Sign Up">
-  </form>  
+      <div class="field">
+        <input type="email" name="email" id="email" required>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="field">
+        <input type="password" name="password" id="password" required>
+        <label for="password">Password</label>
+      </div>
+
+      <div class="field">
+        <input type="password" name="password_confirmation" id="password_confirmation" required>
+        <label for="password_confirmation">Password Confirmation</label>
+      </div>
+
+      <div class="field">
+        <input type="submit" value="Sign Up">
+      </div>
+      
+    </form>  
+  </div>
+  
   {% if error %}
     <p style="color: tomato;">{{ error }}</p>
   {% endif %}

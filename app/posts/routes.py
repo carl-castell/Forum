@@ -33,6 +33,7 @@ def post_new_topic():
     return redirect(url_for('posts.topics'))
 
 @blueprint.get('/topics/show/<id>')
+@login_required
 def get_topic_show(id):
     topic= Topic.query.filter_by(id=id).first_or_404()
     topic_new = db.session.query(Topic, User).filter(Topic.id == id).filter(Topic.author_id == User.id).first()
