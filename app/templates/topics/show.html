@@ -6,5 +6,7 @@
 
     <h2>Title: {{ topic_new.Topic.title }}</h2>
     <p>by: {{ topic_new.User.email }}</p>
+    <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }}</p>
+    
     <p>{{ topic_new.Topic.description }}</p>
 {% endblock %}
