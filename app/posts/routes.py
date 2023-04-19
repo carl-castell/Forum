@@ -40,14 +40,14 @@ def post_new_topic():
 
 #Route to show a topic in full detail
 @blueprint.get('/topics/show/<int:id>')
-#@login_required
+@login_required
 def get_topic_show(id):
     topic_new = db.session.query(Topic, User).filter(Topic.id == id).filter(Topic.author_id == User.id).first()
     #replies = db.session.query(Reply).filter(Reply.topic_id == id).all()
     return render_template('topics/show.html',topic_new=topic_new) #,replies=replies)
 
 @blueprint.post('/topics/show/<id>')
-#@login_required
+@login_required
 def reply(id):
 
     new_reply = Reply(
@@ -62,7 +62,7 @@ def reply(id):
 
 #delete feature(needs to be fixed)
 @blueprint.get('/topics/delete/<id>')
-#@login_required
+@login_required
 def delete_topic(id):
     topic = Topic.query.filter_by(id=id).first()
     topic.delete()

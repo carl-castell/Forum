@@ -5,7 +5,10 @@
 {% block body %}
 
     <h1>Forum</h1>
+    
+    
+    <a href="{{ url_for('posts.topics') }}">Enter Forum</a>
+    <br>
     <a href="{{ url_for('users.get_login') }}">Login</a>
-
 
 {% endblock %}
