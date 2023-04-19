@@ -4,9 +4,34 @@
 
 {% block body %}
 
-    <h2>Title: {{ topic_new.Topic.title }}</h2>
+    <h2>{{ topic_new.Topic.title }}</h2>
     <p>by: {{ topic_new.User.email }}</p>
     <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }}</p>
+    <div class="description">
+         <p>{{ topic_new.Topic.description }}</p>
+    </div>
     
-    <p>{{ topic_new.Topic.description }}</p>
+    <a href="/topics/delete/{{ topic_new.Topic.id }}">Delete</a>
+
+    
+    </form>
+    <div class="replies">
+        <form method="post">
+            <div>
+                <label for="description">Re:</label>
+                <input type="text" name="description" id="description" placeholder="{{ topic_new.Topic.title }}">
+              </div>
+              <input type="submit" value="send">
+        </form>
+    </div>
+<!--
+    <ul>
+        {% for reply in replies %}
+          <li>
+            <h3><span>{{ reply.Reply.reply_content }}</h3> by: {{ reply.User.email }}</span>
+            
+          </li>
+        {% endfor %}
+      </ul>
+    -->
 {% endblock %}
