@@ -8,17 +8,15 @@ from app.extensions.authentication import login_manager
 blueprint = Blueprint('posts', __name__)
 
 
-#Route to index all topics
+################# index route ###############################################
 @blueprint.get('/topics')
 @login_required
 def topics():
-   # page = request.args.get('page', 1, type=int)
-   # topics_pagination = Topic.query.paginate(page=page, per_page=current_app.config['TOPICS_PER_PAGE'])
     topics = db.session.query(Topic, User).filter(Topic.author_id == User.id).all()
     return render_template('topics/index.html',topics=topics)
 
 
-#Route to add a new topic
+################# add new topic #############################################
 @blueprint.get('/topics/new')
 @login_required
 def new_topic():
@@ -38,20 +36,16 @@ def post_new_topic():
     return redirect(url_for('posts.topics'))
 
 
-#Route to show a topic in full detail
+################# show content ###############################################
 @blueprint.get('/topics/show/<int:id>')
 @login_required
 def get_topic_show(id):
     topic_new = db.session.query(Topic, User).filter(Topic.id == id).filter(Topic.author_id == User.id).first()
-    print(topic_new[0].id)
-    # replies = db.session.query(Reply).filter(Reply.topic_id == id).all()
     replies = db.session.query(Reply, User).filter(Reply.topic_id == id).filter(Reply.author_id == User.id).all()
-    print(replies)
-    for reply, user in replies:
-        print(reply.reply_content)
-        print(user.email)
     return render_template('topics/show.html',topic_new=topic_new ,replies=replies)
 
+
+################# add reply ##################################################
 @blueprint.post('/topics/show/<id>')
 @login_required
 def reply(id):
@@ -65,15 +59,44 @@ def reply(id):
     
     return redirect(f'/topics/show/{id}')
 
-#delete feature(needs to be fixed)
+
+################# delete content ##############################################
 @blueprint.get('/topics/delete/<id>')
 @login_required
 def delete_topic(id):
-    topic = Topic.query.filter_by(id=id).first()
-    topic.delete()
+    topic_to_delete = Topic.query.filter_by(id=id).first()
+    replys_to_delete = Reply.query.filter_by(topic_id=id).all()
+    topic_to_delete.delete()
+    for item in replys_to_delete:
+        item.delete()
     return redirect(url_for('posts.topics'))
 
-#Route that redirects user to log in page if they try to gain unathorized access
+
+################# authorized handler ##########################################
 @login_manager.unauthorized_handler
 def unauthorized():
     return redirect(url_for('users.get_login'))
+
+
+################## Edit topics ################################################
+@blueprint.get('/topics/edit/<int:id>')
+#@login_required
+def get_topic_edit(id):
+    return redirect(url_for('posts.topics'))
+
+
+# @blueprint.post('/topics/edit/<int:id>')
+# #@login_required
+# def get_topic_edit(id):
+#     return redirect(url_for('posts.topics'))
+
+################## Edit replys ################################################
+@blueprint.get('/topics/reply/edit/<int:id>')
+#@login_required
+def get_reply_edit(id):
+    return redirect(url_for('posts.topics'))
+
+# @blueprint.post('/topics/reply/edit/<int:id>')
+# #@login_required
+# def get_reply_edit(id):
+#     return redirect(url_for('posts.topics'))

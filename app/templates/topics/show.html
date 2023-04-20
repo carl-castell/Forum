@@ -60,7 +60,9 @@
     <ul>
         {% for reply in replies %}
           <li>
-            <h3><span>{{ reply.Reply.reply_content }}</h3> by: {{ reply.User.email }}</span>
+            <h3>Re: {{ topic_new.Topic.title }} by: {{ reply.User.email }}</h3>
+            <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }}</p>
+            <h2>{{ reply.Reply.reply_content }}</h2>
             
           </li>
         {% endfor %}
