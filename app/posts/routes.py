@@ -43,13 +43,18 @@ def post_new_topic():
 @login_required
 def get_topic_show(id):
     topic_new = db.session.query(Topic, User).filter(Topic.id == id).filter(Topic.author_id == User.id).first()
-    #replies = db.session.query(Reply).filter(Reply.topic_id == id).all()
-    return render_template('topics/show.html',topic_new=topic_new) #,replies=replies)
+    print(topic_new[0].id)
+    # replies = db.session.query(Reply).filter(Reply.topic_id == id).all()
+    replies = db.session.query(Reply, User).filter(Reply.topic_id == id).filter(Reply.author_id == User.id).all()
+    print(replies)
+    for reply, user in replies:
+        print(reply.reply_content)
+        print(user.email)
+    return render_template('topics/show.html',topic_new=topic_new ,replies=replies)
 
 @blueprint.post('/topics/show/<id>')
 @login_required
 def reply(id):
-
     new_reply = Reply(
         reply_content =request.form.get('description'),
         author_id=current_user.id,
@@ -58,7 +63,7 @@ def reply(id):
     
     new_reply.save()
     
-    return redirect(url_for('posts.topics'))
+    return redirect(f'/topics/show/{id}')
 
 #delete feature(needs to be fixed)
 @blueprint.get('/topics/delete/<id>')
