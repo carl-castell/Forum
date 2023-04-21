@@ -8,22 +8,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     {% block stylesheet  %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
+    {% block internal_style %}{% endblock %}
   {% endblock %}
 </head>
 <body>
+  
     <nav>
-      <h1>Forum</h1>
-      <ul>
-        <li><a href="/topics">Topics</a></li>
-      </ul>
+      <div class="logo">
+        ƒorum
+      </div>
+      <div class="menu">
+        <a href="/topics">Topics</a>
+        <a href="/profile">Profile</a>
+        
+      </div>
+      <div class="register">
+        {% if current_user.is_authenticated %}
+          <a href="/logout">Logout</a>
+        {% endif %}
+      </div>
     </nav>
-    {% block body %}{% endblock %}
+
+    
+  {% block body %}
+  
+  {% endblock %}
 </body>
-<footer>
+<footer >
   {% block footer %} 
     
   {% endblock %}
-  <hr>
+  
   {% if current_user.is_authenticated %}
     <small>
       Logged in as {{ current_user.email }}.

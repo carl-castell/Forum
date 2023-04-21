@@ -4,12 +4,12 @@
         /* Set a style for all buttons */
     .button1 {
     
-        background:#f44336;
+        background:indigo;
         
         color: white;
         padding: 14px 20px;
         border: none;
-        border-radius:50px;
+        border-radius:10px;
         cursor: pointer;
         width: 10%;
         opacity: 0.9;
@@ -49,12 +49,12 @@
     
     /* Add a color to the cancel button */
     .cancelbtn {
-        background-color: #03a9f4;
+        background-color: darkcyan;
         color: white;
     }
     /* Add a color to the delete button */
     .deletebtn {
-      background-color: #f44336;
+      background-color: darkred;
           color: white;
     }
     

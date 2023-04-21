@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block stylesheet  %} <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}"> {% endblock %}
 {% block title %}Cookieshop | Register{% endblock %}
-
+{% block internal_style %}
+<style>
+  nav{
+    display: none;
+  }
+</style>
+{% endblock %}
 {% block body %}
 
   <div class="wrapper">

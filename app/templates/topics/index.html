@@ -3,19 +3,29 @@
 {% block title %}Topics{% endblock %}
 
 {% block body %}
-<h1>Topics</h1>
-<a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
-<ul>
-    {% for topic in topics %}
-      <li>
-        <a href="/topics/show/{{ topic.Topic.id }}"><h3><span>{{ topic.Topic.title }}</h3> by: {{ topic.User.email }}</span></a> 
-        
-      </li>
-    {% endfor %}
+<section class="wrapper">
+  <h1>Topics</h1>
+  <div class="add">
+    <a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
+  </div> 
+    <ul  class="topic-list">
+      {% for topic in topics %}
+        <div class="topic">
+          <li>
+            <a href="/topics/show/{{ topic.Topic.id }}">
+              <div class="topic-link">
+                <h3><span>{{ topic.Topic.title }}</h3> by: {{ topic.User.email }}</span></a>
+              </div> 
+          </li>
+        </div>
+          
+      {% endfor %}
   </ul>
 
-
+</section>
 {% endblock %}
+
+
 
 
 

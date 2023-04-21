@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect
 from app.users.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 from app.extensions.authentication import login_manager
 
 
@@ -70,3 +70,10 @@ def logout():
 @login_manager.unauthorized_handler
 def unauthorized():
     return redirect(url_for('users.get_login'))
+  
+  ############### view profile######################################################
+  
+@blueprint.get('/profile')
+def get_profile():
+  #user = User.query.filter_by(id==current_user.id).first()
+  return render_template('profile/profile.html')

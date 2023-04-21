@@ -3,9 +3,8 @@
 {% block title %}Edit{% endblock %}
 
 {% block body %}
-
-
-    {% if current_user.id == change_reply.author_id  %}
+<section class="wrapper">
+  {% if current_user.id == change_reply.author_id  %}
         <form method ="POST">
         
 
@@ -23,6 +22,9 @@
         <p>you are not authorized to edit this content, because you are not the author</p>
         <a href="/login">log in with the account of the author</a>
     {% endif %}
+</section>
+
+    
     
 
 {% endblock %}

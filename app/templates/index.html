@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
-
-{% block title %}Forum{% endblock %}
+{% block internal_style %}
+    <style>
+        footer{
+            display: none;
+        }
+        .register{
+            display: none;
+        }
+    </style>
+{% endblock %}
+{% block title %}Landing Page{% endblock %}
 
 {% block body %}
-
-    <h1>Forum</h1>
+    <section class="h-text">
+        <span>Welcome </span>
+        <br>
+        <span>to</span>
+        <h1>ƒorum</h1>
+        <br>
+        <br>
+        <a href="{{ url_for('posts.topics') }}">Get started</a>
     
+    </section>
     
-    <a href="{{ url_for('posts.topics') }}">Enter Forum</a>
-    <br>
-    <a href="{{ url_for('users.get_login') }}">Login</a>
-
 {% endblock %}
