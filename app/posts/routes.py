@@ -4,6 +4,7 @@ from app.users.models import User
 from flask_login import login_required, current_user
 from app.extensions.database import db
 from app.extensions.authentication import login_manager
+from datetime import datetime
 
 blueprint = Blueprint('posts', __name__)
 
@@ -104,13 +105,14 @@ def post_topic_edit(id):
     
     update_topic.title=request.form.get('title')
     update_topic.description=request.form.get('description')
-    update_topic.author_id=current_user.id
+    #update_topic.date=datetime.utcnow
+    redirect_id =update_topic.id
 
     
     update_topic.save()
     
     
-    return redirect(f'/topics/show/{id}')
+    return redirect(f'/topics/show/{redirect_id}')
 
 ################## Edit replys ################################################
 @blueprint.get('/topics/reply/edit/<int:id>')
@@ -125,7 +127,9 @@ def post_reply_edit(id):
     
     update_reply = db.session.query(Reply).filter(Reply.id==id).first()
     update_reply.reply_content =request.form.get('description')
+    #update_reply.date=datetime.utcnow
     redirect_id =update_reply.topic_id
+    
     
     update_reply.save()
     

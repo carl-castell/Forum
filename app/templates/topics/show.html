@@ -6,7 +6,7 @@
 
     <h2>{{ topic_new.Topic.title }}</h2>
     <p>by: {{ topic_new.User.email }}</p>
-    <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }}</p>
+    <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
     <div class="description">
          <p>{{ topic_new.Topic.description }}</p>
     </div>
@@ -38,8 +38,8 @@
     <div class="replies">
         <form method="post">
             <div>
-                <label for="description">Re:</label>
-                <input type="text" name="description" id="description" placeholder="{{ topic_new.Topic.title }}">
+                
+                <input type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}">
               </div>
               <input type="submit" value="send">
         </form>
@@ -50,7 +50,7 @@
         {% for reply in replies %}
           <li>
             <h3>{{ reply.User.email }}--> re:{{ topic_new.Topic.title }}</h3>
-            <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }}</p>
+            <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
             <p>{{ reply.Reply.reply_content }}</p>
             {% if current_user.id == reply.Reply.author_id  %}
               <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
