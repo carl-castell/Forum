@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block body %}
+
+
+
+    <form method ="POST">
+        
+
+        <div>
+          <label for="description">Description:</label>
+          <input type="text" name="description" id="description" value="{{ change_reply.reply_content }}">
+        </div>
+        
+        <input type="submit" value="Save">
+        <a href="/topics/reply/delete/{{ change_reply.id }}">Delete</a>
+    
+      </form>
+
+{% endblock %}

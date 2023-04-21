@@ -73,6 +73,13 @@ def delete_topic(id):
 
 
 ################# delete reply ################################################
+@blueprint.get('/topics/reply/delete/<id>')
+@login_required
+def delete_reply(id):
+    topic_to_delete = Reply.query.filter_by(id=id).first()
+    redirect_id =topic_to_delete.topic_id
+    topic_to_delete.delete()
+    return redirect(f'/topics/show/{redirect_id}')
 
 
 ################# authorized handler ##########################################
@@ -83,14 +90,14 @@ def unauthorized():
 
 ################## Edit topics ################################################
 @blueprint.get('/topics/edit/<int:id>')
-#@login_required
+@login_required
 def get_topic_edit(id):
     change_topic = db.session.query(Topic, User).filter(Topic.id == id).filter(Topic.author_id == User.id).first()
     return render_template('posts/edit_topic.html', change_topic=change_topic)
 
 
 @blueprint.post('/topics/edit/<int:id>')
-#@login_required
+@login_required
 def post_topic_edit(id):
     
     update_topic = db.session.query(Topic).filter(Topic.id==id).first()
@@ -107,11 +114,20 @@ def post_topic_edit(id):
 
 ################## Edit replys ################################################
 @blueprint.get('/topics/reply/edit/<int:id>')
-#@login_required
+@login_required
 def get_reply_edit(id):
-    return render_template('posts/new_topic.html')
+    change_reply= db.session.query(Reply).filter(Reply.id==id).first()
+    return render_template('posts/edit_reply.html',change_reply=change_reply)
 
 @blueprint.post('/topics/reply/edit/<int:id>')
-#@login_required
+@login_required
 def post_reply_edit(id):
-    return redirect(url_for('posts.topics'))
+    
+    update_reply = db.session.query(Reply).filter(Reply.id==id).first()
+    update_reply.reply_content =request.form.get('description')
+    redirect_id =update_reply.topic_id
+    
+    update_reply.save()
+    
+        
+    return redirect(f'/topics/show/{redirect_id}')

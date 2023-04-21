@@ -10,8 +10,9 @@
     <div class="description">
          <p>{{ topic_new.Topic.description }}</p>
     </div>
-    <!--old delete link
-    <a href="/topics/delete/{{ topic_new.Topic.id }}">Delete</a>-->
+    <div>
+      <a href="/topics/edit/{{ topic_new.Topic.id }}">Edit</a>
+    </div>
     <button class="button1" onclick="document.getElementById('id01').style.display='block'">Delete</button>
 
     <div id="id01" class="modal">
@@ -62,8 +63,8 @@
           <li>
             <h3>Re: {{ topic_new.Topic.title }} by: {{ reply.User.email }}</h3>
             <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }}</p>
-            <h2>{{ reply.Reply.reply_content }}</h2>
-            
+            <p>{{ reply.Reply.reply_content }}</p>
+            <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
           </li>
         {% endfor %}
       </ul>
