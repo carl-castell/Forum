@@ -60,7 +60,7 @@ def reply(id):
     return redirect(f'/topics/show/{id}')
 
 
-################# delete content ##############################################
+################# delete topic with replys ####################################
 @blueprint.get('/topics/delete/<id>')
 @login_required
 def delete_topic(id):
@@ -70,6 +70,9 @@ def delete_topic(id):
     for item in replys_to_delete:
         item.delete()
     return redirect(url_for('posts.topics'))
+
+
+################# delete reply ################################################
 
 
 ################# authorized handler ##########################################
@@ -82,21 +85,33 @@ def unauthorized():
 @blueprint.get('/topics/edit/<int:id>')
 #@login_required
 def get_topic_edit(id):
-    return redirect(url_for('posts.topics'))
+    change_topic = db.session.query(Topic, User).filter(Topic.id == id).filter(Topic.author_id == User.id).first()
+    return render_template('posts/edit_topic.html', change_topic=change_topic)
 
 
-# @blueprint.post('/topics/edit/<int:id>')
-# #@login_required
-# def get_topic_edit(id):
-#     return redirect(url_for('posts.topics'))
+@blueprint.post('/topics/edit/<int:id>')
+#@login_required
+def post_topic_edit(id):
+    
+    update_topic = db.session.query(Topic).filter(Topic.id==id).first()
+    
+    update_topic.title=request.form.get('title')
+    update_topic.description=request.form.get('description')
+    update_topic.author_id=current_user.id
+
+    
+    update_topic.save()
+    
+    
+    return redirect(f'/topics/show/{id}')
 
 ################## Edit replys ################################################
 @blueprint.get('/topics/reply/edit/<int:id>')
 #@login_required
 def get_reply_edit(id):
-    return redirect(url_for('posts.topics'))
+    return render_template('posts/new_topic.html')
 
-# @blueprint.post('/topics/reply/edit/<int:id>')
-# #@login_required
-# def get_reply_edit(id):
-#     return redirect(url_for('posts.topics'))
+@blueprint.post('/topics/reply/edit/<int:id>')
+#@login_required
+def post_reply_edit(id):
+    return redirect(url_for('posts.topics'))
