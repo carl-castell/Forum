@@ -4,22 +4,28 @@
 
 {% block body %}
 <section class="wrapper">
-  <form method ="POST">
+  <div class="input">
+    <form method ="POST">
         
         <h2>New Topic:</h2>
+      
         <div>
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" placeholder="title of your topic">
+          <input type="text" name="title" id="title" placeholder="title of your topic" required>
         </div>
         <div>
-          <label for="description">Description:</label>
-          <input type="text" name="description" id="description" placeholder="description of topic">
+          <!-- <label for="description">Description:</label> -->
+          <!-- <input type="text" name="description" id="description" placeholder="description of topic"> -->
+          <textarea type="text" name="description" id="description" spellcheck="false" placeholder="description of topic" required></textarea>
         </div>
         
         <input type="submit" value="Post Topic">
     
-      </form>
-</section>
+
     
+    </form>
+  </div>
+</section>
+<script src="/app/static/scripts/auto-resize-textarea.js"></script>    
 
 {% endblock %}

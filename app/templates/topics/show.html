@@ -12,7 +12,7 @@
   </div>
 
   {% if current_user.id == topic_new.Topic.author_id  %}
-      <div>
+      <div class="button-link">
         <a href="/topics/edit/{{ topic_new.Topic.id }}">Edit</a>
       </div>
       <button class="button1" onclick="document.getElementById('id01').style.display='block'">Delete</button>
@@ -34,12 +34,13 @@
     
   
   {% endif %}
-
+ 
   <div class="replies">
       <form method="post">
           <div>
               
-              <input type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}">
+              <!-- <input type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}"> -->
+              <textarea type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}"></textarea>
             </div>
             <input type="submit" value="send">
       </form>
@@ -52,29 +53,29 @@
           <h3>{{ reply.User.email }}--> re:{{ topic_new.Topic.title }}</h3>
           <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
           <p>{{ reply.Reply.reply_content }}</p>
-          {% if current_user.id == reply.Reply.author_id  %}
-            <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
-          {% endif %}
+          <div class="button-link">
+            {% if current_user.id == reply.Reply.author_id  %}
+              <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
+            {% endif %}
+          </div>
+          
         </li>
       {% endfor %}
     </ul>
 </section>
 
     
-
 <script>
-
-    var modal = document.getElementById('id01');
-
+      var modal = document.getElementById('id01');
+    
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }
     }
-
-    function openLink() {
+    
+      function openLink() {
         location.href = "/topics/delete/{{ topic_new.Topic.id }}";
     }
-
 </script>
 {% endblock %}

@@ -22,12 +22,15 @@ nav{
 
 footer{
     background:darkslategrey;
+    font-size: 18px;
     height: 40px;
-    
+    padding: 35px;
+    text-align: center;
 }
 footer a {
     text-decoration: none;
 }
+
 
 /*Navbar*/
 .logo{
@@ -103,12 +106,72 @@ footer a {
 
 .wrapper{
     margin: 50px 100px;
+    display: flexbox;
+   
 }
 
 .topic{
     list-style: none;
 }
 
+.topic a{
+    text-decoration: none;
+}
+
 .topic-list{
     margin-top: 30px;
 }
+
+.button-link a{
+    text-decoration: none;
+}
+
+.input{
+    width: 600px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 25px 25px 30px;
+    box-shadow: 8px 8px 10px rgba(0,0,0,0.06);
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    
+  }
+
+.input h2 {
+    color: #4671EA;
+    font-size: 28px;
+    text-align: center;
+  }
+
+.input textarea{
+    width: 100%;
+    resize: none;
+    height: 59px;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    max-height: 330px;
+    caret-color: indigo;
+    border: 1px solid #bfbfbf;
+    
+  }
+
+
+
+textarea::placeholder{
+    color: #b3b3b3;
+  }
+textarea:is(:focus, :valid){
+    padding: 14px;
+    border: 2px solid indigo;
+  }
+textarea::-webkit-scrollbar{
+    width: 0px;
+  }
+
+::selection{
+    color: #fff;
+    background: indigo;
+  }

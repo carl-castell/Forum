@@ -10,7 +10,8 @@
 
         <div>
           <label for="description">Description:</label>
-          <input type="text" name="description" id="description" value="{{ change_reply.reply_content }}">
+          <!-- <input type="text" name="description" id="description" value="{{ change_reply.reply_content }}"> -->
+          <textarea type="text" name="description" id="description">{{ change_reply.reply_content }}</textarea>
         </div>
         
         <input type="submit" value="Save">
