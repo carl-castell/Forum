@@ -5,13 +5,13 @@
 {% block body %}
 <section class="wrapper">
   {% if current_user.id == change_reply.author_id  %}
-        <form method ="POST">
+        <form method ="POST" class="input">
         
 
         <div>
-          <label for="description">Description:</label>
+          <label for="description" class="input-lable">Description:</label>
           <!-- <input type="text" name="description" id="description" value="{{ change_reply.reply_content }}"> -->
-          <textarea type="text" name="description" id="description">{{ change_reply.reply_content }}</textarea>
+          <textarea type="text" name="description" id="description" required>{{ change_reply.reply_content }}</textarea>
         </div>
         
         <input type="submit" value="Save">

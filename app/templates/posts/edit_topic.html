@@ -5,17 +5,17 @@
 {% block body %}
 <section class="wrapper">
   {% if current_user.id == change_topic.Topic.author_id  %}
-    <form method ="POST">
+    <form method ="POST" class="input">
         
         <h2>Edit: {{ change_topic.Topic.title }}</h2>
         <div>
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title" value="{{ change_topic.Topic.title }}">
+          <label for="title" class="input-lable">Title</label>
+          <input type="text" name="title" id="title" value="{{ change_topic.Topic.title }}" class="input-title" required>
         </div>
         <div>
-          <label for="description">Description:</label>
+          <label for="description" class="input-lable">Description:</label>
           <!--<input type="text" name="description" id="description" value="{{ change_topic.Topic.description }}">-->
-          <textarea type="text" name="description" id="description">{{ change_topic.Topic.description }}</textarea>
+          <textarea type="text" name="description" id="description" required >{{ change_topic.Topic.description }}</textarea>
         </div>
         
         <input type="submit" value="Save">
