@@ -131,7 +131,7 @@ footer a {
     background: #fff;
     opacity: 90%;
     border-radius: 10px;
-    padding: 25px 25px 30px;
+    padding: 23px 25px 25px;
     display: block;
     font-family: 'Courier New', Courier, monospace;
     
@@ -163,6 +163,7 @@ footer a {
 .input-lable{
     color: indigo;
     font-weight: bold;
+    font-size: 16px;
     
 }
 .input-title{
@@ -188,6 +189,7 @@ footer a {
 
 .input-title::placeholder{
     color: #b3b3b3;
+    font-size: 16px;
 }
 .input input[type="submit"]{
     background: indigo;
@@ -219,3 +221,56 @@ textarea::-webkit-scrollbar{
     background: indigo;
   }
 
+  @media (max-width: 480px){
+
+    .wrapper{
+        margin: 50px 25px;
+    }
+    .menu a {
+        padding: 5px 5px 5px 5px;
+        font-size: 15px;
+        
+    }
+    .register a{
+        padding: 5px 5px 5px 5px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+    .logo{
+        margin-left: 5px;
+        letter-spacing: 1px;
+
+    }
+    nav{
+        height: 70px;
+    }
+    .h-text h1{
+        font-size: 3em;
+    }
+    .h-text a{
+        padding: 5px 10px;
+        font-size: 1em;
+    }
+    .input{
+        padding: 30px 20px 30px;
+    }
+    .input h2 {
+        font-size: 18px;
+    }
+    .input textarea{
+        font-size: 14px;
+    }
+    .input-lable{
+        font-size: 14px;
+    }
+    .input-title::placeholder{
+    font-size: 14px;
+    }
+    .input input[type="submit"]:is(:focus, :valid){
+    padding: 10px;
+}
+
+
+
+  }
