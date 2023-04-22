@@ -136,6 +136,8 @@
     form .signup-link{
       padding-top: 20px;
     }
-
+    .wrapper{
+      width: 90vw;
+    }
 
   }
