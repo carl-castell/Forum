@@ -2,9 +2,10 @@
 
 {% block title %}Edit{% endblock %}
 
-{% block body %}
-<section class="wrapper">
-  {% if current_user.id == change_topic.Topic.author_id  %}
+{% block main %}
+<section>
+  <div class="content">
+    {% if current_user.id == change_topic.Topic.author_id  %}
     <form method ="POST" class="input">
         
         <h2>Edit: {{ change_topic.Topic.title }}</h2>
@@ -19,6 +20,7 @@
         </div>
         
         <input type="submit" value="Save">
+        <a href="/topics/delete/{{ change_topic.Topic.id }}">Delete</a>
     
       </form>
 
@@ -27,7 +29,22 @@
     <a href="/login">log in with the account of the author</a>
 {% endif %}      
 
+  </div>
+  
 </section>
+<script >
+  const textarea = document.querySelector("textarea");
+
+  function adjustTextareaHeight() {
+    textarea.style.height = "63px";
+    let scHeight = textarea.scrollHeight;
+    textarea.style.height = `${scHeight}px`;
+  }
+
+  textarea.addEventListener("keyup", adjustTextareaHeight);
+
+  adjustTextareaHeight();
+</script>
 
 
 {% endblock %}

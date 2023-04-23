@@ -1,27 +1,32 @@
 {% extends 'base.html' %}
 
 {% block title %}Topics{% endblock %}
+{% block nav %} 
+{{ super() }}
+{% endblock %}
 
-{% block body %}
-<section class="wrapper">
-  <h1>Topics</h1>
-  <div class="button-link">
-    <a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
-  </div> 
-    <ul  class="topic-list">
-      {% for topic in topics %}
-        <div class="topic">
-          <li>
-            <a href="/topics/show/{{ topic.Topic.id }}">
-              <div class="topic-link">
-                <h3><span>{{ topic.Topic.title }}</h3> by: {{ topic.User.email }}</span></a>
-              </div> 
-          </li>
-        </div>
-          
-      {% endfor %}
-  </ul>
-
+{% block main %}
+<section >
+  <div class="content">
+  
+    <div class="button-link">
+      <a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
+    </div>
+  
+        <ul  class="topic-list">
+          {% for topic in topics %}
+            <div class="topic">
+            <li>
+              <a href="/topics/show/{{ topic.Topic.id }}">               
+                {{ topic.Topic.title }}</a>
+                <br>
+                <span>by: {{ topic.User.email }}</span>
+            </li>
+            </div>
+            
+          {% endfor %}
+        </ul>
+  </div>
 </section>
 {% endblock %}
 
