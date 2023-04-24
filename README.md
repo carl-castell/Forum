@@ -37,6 +37,14 @@ To install and run Forum on your local machine, follow these steps:
         `flask db upgrade`
 
 
+6. Create a `.env` file
+
+    It should contain:
+        `DATABASE_URL=sqlite:///database.db`
+        `FLASK_APP=run.py`
+        `SECRET_KEY=` to be defined
+
+        
 6. Run the app to see if it is working
 
         `python run.py`
@@ -67,6 +75,7 @@ If you have any questions or comments, please feel free to contact us by opening
 Forum uses the following external libraries and resources:
 
 - Flask
+- SQLAlchemy
 
 ---
 
