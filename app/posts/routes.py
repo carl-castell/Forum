@@ -67,9 +67,9 @@ def reply(id):
 def delete_topic(id):
     topic_to_delete = Topic.query.filter_by(id=id).first()
     replys_to_delete = Reply.query.filter_by(topic_id=id).all()
-    topic_to_delete.delete()
     for item in replys_to_delete:
         item.delete()
+    topic_to_delete.delete()
     return redirect(url_for('posts.topics'))
 
 
