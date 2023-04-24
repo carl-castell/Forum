@@ -5,52 +5,58 @@
 {% block main %}
 <section>
   <div class="content">
-    <h2>{{ topic_new.Topic.title }}</h2>
-    <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
-    <div class="description">
-      <p>{{ topic_new.Topic.description }}</p>
-    </div>
-    <br>
-    <p>by: {{ topic_new.User.email }}</p>
-    
-    
-    {% if current_user.id == topic_new.Topic.author_id  %}
-       <div class="button-link-edit">
-        <a href="/topics/edit/{{ topic_new.Topic.id }}">Edit</a>
-      </div>
-    {% endif %}
-      
-      
-      <form method="post" class="input">
-        <div>
-          <label for="description" class="input-lable">Reply to: {{ topic_new.Topic.title }}</label>
-          <!-- <input type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}"> -->
-          <textarea type="text" name="description" id="description" placeholder="your reply..." required></textarea>
-        </div>
-        <input type="submit" value="send">
-      </form>
-      
-      
-      <div class="replies">
-        <ul>
-          {% for reply in replies %}
-            <div class="reply">
-              <li>
-                <h3>{{ reply.User.email }}--> re:{{ topic_new.Topic.title }}</h3>
-                <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
-                <p>{{ reply.Reply.reply_content }}</p>
-                <div class="button-link-edit">
-                  {% if current_user.id == reply.Reply.author_id  %}
-                  <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
-                  {% endif %}
-                </div>
+    <div class="content-wrapper">
 
-              </li>
-            </div>  
-          {% endfor %}
-      </ul>
-      </div>
+    
+      <div class="show-topic">
+        <h2>{{ topic_new.Topic.title }}</h2>
+        <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
+        <div class="description">
+          <p>{{ topic_new.Topic.description }}</p>
+        </div>
+        <br>
+        <p>by: {{ topic_new.User.email }}</p>
       
+      
+        {% if current_user.id == topic_new.Topic.author_id  %}
+          <div class="button-link-edit">
+            <a href="/topics/edit/{{ topic_new.Topic.id }}">Edit</a>
+          </div>
+        {% endif %}
+      </div>
+
+
+
+        <form method="post" class="input">
+          <div>
+            <label for="description" class="input-lable">Reply to: {{ topic_new.Topic.title }}</label>
+            <!-- <input type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}"> -->
+            <textarea type="text" name="description" id="description" placeholder="your reply..." required></textarea>
+          </div>
+          <input type="submit" value="send">
+        </form>
+
+
+        <div class="show-replies">
+          <ul>
+            {% for reply in replies %}
+              <div class="reply">
+                <li>
+                  <h3>{{ reply.User.email }}--> re:{{ topic_new.Topic.title }}</h3>
+                  <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
+                  <p>{{ reply.Reply.reply_content }}</p>
+                  <div class="button-link-edit">
+                    {% if current_user.id == reply.Reply.author_id  %}
+                    <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
+                    {% endif %}
+                  </div>
+
+                </li>
+              </div>  
+            {% endfor %}
+          </ul>
+        </div>
+    </div>  
   </div>
 </section>
 

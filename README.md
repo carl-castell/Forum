@@ -40,11 +40,11 @@ To install and run Forum on your local machine, follow these steps:
 6. Create a `.env` file
 
     It should contain:
-        `DATABASE_URL=sqlite:///database.db`
-        `FLASK_APP=run.py`
+        `DATABASE_URL=sqlite:///database.db`,
+        `FLASK_APP=run.py`,
         `SECRET_KEY=` to be defined
 
-        
+
 6. Run the app to see if it is working
 
         `python run.py`

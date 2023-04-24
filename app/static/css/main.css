@@ -138,7 +138,12 @@ section div{
 .content h1 {
     font-family:monospace;
     font-size: 28px;
-
+}
+.content-wrapper{
+    margin-top: 40px;
+    width: 80%;
+    background: #fff;
+    border-radius: 10px;
 }
 .reply{
     margin: 10px;
@@ -159,10 +164,9 @@ section div{
 
 .topic-list{
     margin-top: 30px;
-    width: 80%;
     background: #fff;
     padding: 40px;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 
 }
@@ -179,22 +183,24 @@ span {
     background-color: #98c379;
     border-radius: 5px;
     padding: 5px 10px;
-    margin: 10px;
     
 }
 
-.button-link:hover{
-    transform: scale(1.4);
-}
 
+.show-topic{
+
+    padding: 23px 25px 25px;
+}
+.show-replies{
+    
+    padding: 23px 25px 25px;
+}
 
 .input div {
     display: block;
 }
 .input{
-    width: 80%;
-    background: #fff;
-    opacity: 90%;
+    background: #284846;
     border-radius: 10px;
     padding: 23px 25px 25px;
     display: block;

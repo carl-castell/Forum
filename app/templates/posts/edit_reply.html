@@ -5,25 +5,27 @@
 {% block main %}
 <section>
   <div class="content">
-    {% if current_user.id == change_reply.author_id  %}
-        <form method ="POST" class="input">
-        
+    <div class="content-wrapper">
+      {% if current_user.id == change_reply.author_id  %}
+          <form method ="POST" class="input">
+          
 
-        <div>
-          <label for="description" class="input-lable">Description:</label>
-          <!-- <input type="text" name="description" id="description" value="{{ change_reply.reply_content }}"> -->
-          <textarea type="text" name="description" id="description" required>{{ change_reply.reply_content }}</textarea>
-        </div>
-        
-        <input type="submit" value="Save">
-        <a href="/topics/reply/delete/{{ change_reply.id }}">Delete</a>
-    
-      </form>
+          <div>
+            <label for="description" class="input-lable">Edit Reply</label>
+            <!-- <input type="text" name="description" id="description" value="{{ change_reply.reply_content }}"> -->
+            <textarea type="text" name="description" id="description" required>{{ change_reply.reply_content }}</textarea>
+          </div>
 
-    {% else %}
-        <p>you are not authorized to edit this content, because you are not the author</p>
-        <a href="/login">log in with the account of the author</a>
-    {% endif %}
+          <input type="submit" value="Save">
+          <a href="/topics/reply/delete/{{ change_reply.id }}">Delete</a>
+        
+        </form>
+
+      {% else %}
+          <p>you are not authorized to edit this content, because you are not the author</p>
+          <a href="/login">log in with the account of the author</a>
+      {% endif %}
+    </div>
   </div>
   
 </section>

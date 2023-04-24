@@ -5,30 +5,33 @@
 {% block main %}
 <section>
   <div class="content">
-    {% if current_user.id == change_topic.Topic.author_id  %}
-    <form method ="POST" class="input">
-        
-        <h2>Edit: {{ change_topic.Topic.title }}</h2>
-        <div>
-          <label for="title" class="input-lable">Title</label>
-          <input type="text" name="title" id="title" value="{{ change_topic.Topic.title }}" class="input-title" required>
-        </div>
-        <div>
-          <label for="description" class="input-lable">Description:</label>
-          <!--<input type="text" name="description" id="description" value="{{ change_topic.Topic.description }}">-->
-          <textarea type="text" name="description" id="description" required >{{ change_topic.Topic.description }}</textarea>
-        </div>
-        
-        <input type="submit" value="Save">
-        <a href="/topics/delete/{{ change_topic.Topic.id }}">Delete</a>
+    <div class="content-wrapper">
+
     
-      </form>
+      {% if current_user.id == change_topic.Topic.author_id  %}
+      <form method ="POST" class="input">
 
-{% else %}
-    <p>you are not authorized to edit this content, because you are not the author</p>
-    <a href="/login">log in with the account of the author</a>
-{% endif %}      
+          <h2>Edit: {{ change_topic.Topic.title }}</h2>
+          <div>
+            <label for="title" class="input-lable">Title</label>
+            <input type="text" name="title" id="title" value="{{ change_topic.Topic.title }}" class="input-title" required>
+          </div>
+          <div>
+            <label for="description" class="input-lable">Description:</label>
+            <!--<input type="text" name="description" id="description" value="{{ change_topic.Topic.description }}">-->
+            <textarea type="text" name="description" id="description" required >{{ change_topic.Topic.description }}</textarea>
+          </div>
 
+          <input type="submit" value="Save">
+          <a href="/topics/delete/{{ change_topic.Topic.id }}">Delete</a>
+        
+        </form>
+
+        {% else %}
+            <p>you are not authorized to edit this content, because you are not the author</p>
+            <a href="/login">log in with the account of the author</a>
+        {% endif %}      
+    </div>
   </div>
   
 </section>

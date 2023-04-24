@@ -8,24 +8,25 @@
 {% block main %}
 <section >
   <div class="content">
-  
-    <div class="button-link">
-      <a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
+    <div class="content-wrapper">
+      <div class="button-link">
+        <a href="{{ url_for('posts.new_topic') }}">Add Topic</a>
+      </div>
+    
+          <ul  class="topic-list">
+            {% for topic in topics %}
+              <div class="topic">
+              <li>
+                <a href="/topics/show/{{ topic.Topic.id }}">               
+                  {{ topic.Topic.title }}</a>
+                  <br>
+                  <span>by: {{ topic.User.email }}</span>
+              </li>
+              </div>
+
+            {% endfor %}
+          </ul>
     </div>
-  
-        <ul  class="topic-list">
-          {% for topic in topics %}
-            <div class="topic">
-            <li>
-              <a href="/topics/show/{{ topic.Topic.id }}">               
-                {{ topic.Topic.title }}</a>
-                <br>
-                <span>by: {{ topic.User.email }}</span>
-            </li>
-            </div>
-            
-          {% endfor %}
-        </ul>
   </div>
 </section>
 {% endblock %}
