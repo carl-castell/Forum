@@ -15,14 +15,28 @@
     
           <ul  class="topic-list">
             {% for topic in topics %}
-              <div class="topic">
-              <li>
-                <a href="/topics/show/{{ topic.Topic.id }}">               
-                  {{ topic.Topic.title }}</a>
+            <li>
+              <a href="/topics/show/{{ topic.Topic.id }}">               
+                <div class="topic">
+                  <div>
+                    <span class="topic-title">{{ topic.Topic.title }}</span>
+                    <span class="num-of-repl">
+                      {% for key, value in reply_per_topic.items() %}
+                        {% if key == topic.Topic.id|string %}
+                          {% if value == 1 %}
+                            [{{value}} reply]
+                          {% else %}
+                          [{{value}} replies]
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                    </span>
+                  </div>
                   <br>
                   <span>by: {{ topic.User.email }}</span>
+                </div>
+                </a>
               </li>
-              </div>
 
             {% endfor %}
           </ul>

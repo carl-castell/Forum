@@ -9,7 +9,7 @@
     height: 100%;
     width: 100%;
     place-items: center;
-    background: coral;
+    background: rgb(9, 40, 55);
     
   }
   ::selection{

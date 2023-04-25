@@ -6,7 +6,7 @@
 }
 
 body{
-    background: coral;
+    background: rgb(9, 40, 55);
     min-height: 100vh;
 }
 nav{
@@ -27,7 +27,7 @@ footer{
     width: 100%;
     height: 40px;
     margin-top: 20px;
-    background:darkslategrey;
+    background:rgb(11, 70, 121);
     font-size: 18px;
     display: flex;
     justify-content: center;
@@ -35,13 +35,17 @@ footer{
 }
 footer a {
     text-decoration: none;
-    color: indigo;
+    color: #ffffff69;
+}
+footer a:hover{
+    color: #fff;
 }
 footer small{
-    color: #fff;
+    color: #ffffff69;
 }
 a, a:visited,  a:active {
     color: inherit;
+    text-decoration: none;
   }
 
 a:hover{
@@ -64,7 +68,7 @@ a:hover{
 }
 
 .menu a:hover{
-    border: 1px solid indigo;
+    outline: 1px solid indigo;
     background: transparent;
 }
 
@@ -80,7 +84,7 @@ a:hover{
 }
 
 .register a:hover{
-    border: 1px solid indigo;
+    outline: 2px solid indigo;
     background: transparent;
 
 }
@@ -147,29 +151,45 @@ section div{
     border-radius: 10px;
 }
 .reply{
-    margin: 5px;
+    margin: 10px;
     list-style: none;
     border: 1px solid #bfbfbf;
     padding: 10px;
     border-radius: 5px;
+    background: rgba(9, 40, 55, 0.135);
 }
 
 .topic{
     list-style: none;
-    padding: 20px;
+    padding: 10px;
+    margin: 10px;
+    outline: 1px solid #bfbfbf;
+    border-radius: 5px;
+    background: rgba(9, 40, 55, 0.135);
+}
+.topic:hover{
+    outline: 3px solid indigo;
 }
 
-.topic a{
-    text-decoration: none;
+.topic .topic-title{
     font-family: monospace;
     font-size: 20px;
     font-weight: bold;
+    text-align:left;
+}
+.topic .num-of-repl{
+    float:right;
+    font-size:14px;
+    padding-top:6px;
+    color: red;
 }
 
 .topic-list{
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 25px 25px 25px;
 
 }
 span {
@@ -180,14 +200,20 @@ span {
     font-family: monospace;
     font-size: 20px;
     font-weight: bold;
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: transparent;
+    border: 2px solid indigo;
+}
+.button-link a:hover{
+    border: none;
+    background-color: #12cc2b;
+    color: #fff;
 }
 
 .button-link{
-    background-color: #12cc2b;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 20px;
-    width: max-content;
+    margin: 25px;
 }
 .button-link-edit a{
     padding: 5px;
@@ -197,6 +223,11 @@ span {
     color: #fff;
     font-family: monospace;
     font-weight: bold;
+}
+.button-link-edit a:hover{
+    outline: 2px solid indigo;
+    background: transparent;
+    color: indigo;
 }
 
 .input a{
@@ -209,10 +240,17 @@ span {
     font-weight: bold;
     padding: 5px;
 }
+.input a:hover{
+    color: red;
+    background: #fff;
+}
 
 
 .show-topic{
-    padding: 23px 25px 25px;
+    padding: 8px 10px 10px;
+    border: 1px solid #bfbfbf;
+    border-radius: 8px;
+    margin: 15px;
 }
 .show-topic p{
     font-family: monospace;
@@ -222,13 +260,19 @@ span {
     font-family: monospace;
     font-size: 20px;
     font-weight: bold;
-    background-color: #12cc2b;
+    margin-bottom: 10px;
+    background: rgba(9, 40, 55, 0.135);
+
     border-radius: 5px;
     padding: 5px 10px;
     width: max-content;
+    border: 4px solid indigo;
 }
 .show-replies{
-    padding: 25px 25px 25px;
+    padding: 8px 10px 10px;
+    border: 1px solid #bfbfbf;
+    border-radius: 8px;
+    margin: 15px;
 }
 .reply p{
     font-family: monospace;
@@ -236,7 +280,7 @@ span {
 }
 .reply h3{
     font-family: monospace;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -244,7 +288,7 @@ span {
     display: block;
 }
 .input{
-    background: #284846;
+    background: rgba(11, 69, 121, 0.543);
     border-radius: 10px;
     padding: 10px;
     display: block;
@@ -320,9 +364,12 @@ span {
     border: none;
 }
 
-.input input[type="submit"]:is(::selection){
-    border: 4px solid indigo;
+.input input[type="submit"]:is(::selection, :hover){
+    outline: 2px solid indigo;
+    background: transparent;
+    color: indigo;
 }
+
 
 textarea::placeholder{
     color: #b3b3b3;

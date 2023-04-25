@@ -14,7 +14,16 @@ blueprint = Blueprint('posts', __name__)
 @login_required
 def topics():
     topics = db.session.query(Topic, User).filter(Topic.author_id == User.id).all()
-    return render_template('topics/index.html',topics=topics)
+    replies = Reply.query.all()
+    reply_per_topic = {}
+    for reply in replies:
+        for topic in topics:
+            if reply.topic_id == topic[0].id:
+                if f"{topic[0].id}" in reply_per_topic:
+                    reply_per_topic[f"{topic[0].id}"] += 1
+                else:
+                    reply_per_topic[f"{topic[0].id}"] = 1
+    return render_template('topics/index.html',topics=topics, reply_per_topic=reply_per_topic)
 
 
 ################# add new topic #############################################
