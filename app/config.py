@@ -5,3 +5,4 @@ load_dotenv()
 SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL')
 SECRET_KEY = environ.get('SECRET_KEY')
 TOPICS_PER_PAGE = 4
+SECRET_ROUTE = environ.get('google117aa2004214f81f.html')
