@@ -140,19 +140,23 @@ section div{
     font-size: 28px;
 }
 .content-wrapper{
-    margin-top: 40px;
+    margin-bottom: 80px;
+    margin-top: 20px;
     width: 80%;
     background: #fff;
     border-radius: 10px;
 }
 .reply{
-    margin: 10px;
+    margin: 5px;
     list-style: none;
+    border: 1px solid #bfbfbf;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .topic{
     list-style: none;
-    margin: 20px;
+    padding: 20px;
 }
 
 .topic a{
@@ -163,9 +167,7 @@ section div{
 }
 
 .topic-list{
-    margin-top: 30px;
     background: #fff;
-    padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 
@@ -177,23 +179,65 @@ span {
     text-decoration: none;
     font-family: monospace;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .button-link{
-    background-color: #98c379;
+    background-color: #12cc2b;
     border-radius: 5px;
     padding: 5px 10px;
-    
+    margin: 20px;
+    width: max-content;
+}
+.button-link-edit a{
+    padding: 5px;
+    border-radius: 5px;
+    background: indigo;
+    text-decoration: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.input a{
+    padding: 5px;
+    border-radius: 5px;
+    background: red;
+    text-decoration: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 5px;
 }
 
 
 .show-topic{
-
     padding: 23px 25px 25px;
 }
+.show-topic p{
+    font-family: monospace;
+    font-size: 16px;
+}
+.show-topic h2{
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #12cc2b;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: max-content;
+}
 .show-replies{
-    
-    padding: 23px 25px 25px;
+    padding: 25px 25px 25px;
+}
+.reply p{
+    font-family: monospace;
+    font-size: 16px;
+}
+.reply h3{
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .input div {
@@ -202,14 +246,15 @@ span {
 .input{
     background: #284846;
     border-radius: 10px;
-    padding: 23px 25px 25px;
+    padding: 10px;
     display: block;
     font-family: 'Courier New', Courier, monospace;
-    
+    margin: 25px;
   }
 
 .input h2 {
-    color: indigo;
+    color: #fff;
+    font-weight: bold;
     font-size: 20px;
     text-align: center;
     font-family: initial;
@@ -233,7 +278,7 @@ span {
   }
 
 .input-lable{
-    color: indigo;
+    color: #fff;
     font-weight: bold;
     font-size: 16px;
     font-family: monospace;
@@ -267,15 +312,16 @@ span {
 .input input[type="submit"]{
     background: indigo;
     color: #fff;
-    font-family: unset;
-    border-radius: 10px;
-    padding: 10px 20px;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
     margin-top: 15px;
+    border: none;
 }
 
-.input input[type="submit"]:is(:focus, :valid){
+.input input[type="submit"]:is(::selection){
     border: 4px solid indigo;
-    padding: 14px;
 }
 
 textarea::placeholder{
@@ -294,6 +340,9 @@ textarea::-webkit-scrollbar{
     background: indigo;
   }
 
+.date{
+    color: red;
+}
 
   @media (max-width: 480px){
 

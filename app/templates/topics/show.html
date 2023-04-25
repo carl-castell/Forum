@@ -10,7 +10,8 @@
     
       <div class="show-topic">
         <h2>{{ topic_new.Topic.title }}</h2>
-        <p>date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
+        <p class="date" >date: {{ topic_new.Topic.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
+        <br>
         <div class="description">
           <p>{{ topic_new.Topic.description }}</p>
         </div>
@@ -19,8 +20,9 @@
       
       
         {% if current_user.id == topic_new.Topic.author_id  %}
+          <br>
           <div class="button-link-edit">
-            <a href="/topics/edit/{{ topic_new.Topic.id }}">Edit</a>
+            <a href="/topics/edit/{{ topic_new.Topic.id }}">Edit //</a>
           </div>
         {% endif %}
       </div>
@@ -33,7 +35,7 @@
             <!-- <input type="text" name="description" id="description" placeholder="re: {{ topic_new.Topic.title }}"> -->
             <textarea type="text" name="description" id="description" placeholder="your reply..." required></textarea>
           </div>
-          <input type="submit" value="send">
+          <input type="submit" value="send >>">
         </form>
 
 
@@ -42,12 +44,14 @@
             {% for reply in replies %}
               <div class="reply">
                 <li>
-                  <h3>{{ reply.User.email }}--> re:{{ topic_new.Topic.title }}</h3>
-                  <p>date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
+                  <h3>re: {{ topic_new.Topic.title }} >> {{ reply.User.email }} </h3>
+                  <p class="date">date: {{ reply.Reply.date.strftime('%d-%m-%Y %H:%M') }} UTC</p>
+                  <br>
                   <p>{{ reply.Reply.reply_content }}</p>
                   <div class="button-link-edit">
                     {% if current_user.id == reply.Reply.author_id  %}
-                    <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply</a>
+                    <br>
+                    <a href="/topics/reply/edit/{{ reply.Reply.id }}">Edit Reply //</a>
                     {% endif %}
                   </div>
 
