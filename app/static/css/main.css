@@ -9,15 +9,6 @@ body{
     background: rgb(9, 40, 55);
     min-height: 100vh;
 }
-nav{
-    width: 100%;
-    height: 100px;
-    
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
 
 footer{
@@ -48,28 +39,12 @@ a, a:visited,  a:active {
     text-decoration: none;
   }
 
-a:hover{
-    color: indigo;
-}
-
 /*Navbar*/
+
 .logo{
     font-size: 2em;
     letter-spacing: 2px;
     color: #fff;
-
-}
-
-.menu a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
-}
-
-.menu a:hover{
-    outline: 1px solid indigo;
-    background: transparent;
 }
 
 
@@ -88,6 +63,56 @@ a:hover{
     background: transparent;
 
 }
+nav li{
+    list-style: none;
+}
+
+
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    color: #fff;
+    font-size: 18px;
+}
+.navbar a{
+    
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition: 0.7s ease;
+}
+.navbar a:hover{
+    outline: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+
+
+
+/* landing page */
 
 .h-text{
     position: absolute;
@@ -391,54 +416,36 @@ textarea::-webkit-scrollbar{
     color: red;
 }
 
-  @media (max-width: 480px){
+/* first mobile brakpoint */
+@media(max-width:768px){
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transform: 0.3s;
+        background-color: rgb(6, 29, 40);
 
-   
-    .menu a {
-        padding: 5px 5px 5px 5px;
-        font-size: 15px;
-        
     }
-    .register a{
-        padding: 5px 5px 5px 5px;
-        font-size: 15px;
-        border-radius: 5px;
-        margin-right: 5px;
+    .nav-item{
+        margin: 16px 0;
     }
-    .logo{
-        margin-left: 5px;
-        letter-spacing: 1px;
-
+    .nav-menu.active{
+        left: 0;
     }
-    nav{
-        height: 70px;
-    }
-    .h-text h1{
-        font-size: 3em;
-    }
-    .h-text a{
-        padding: 5px 10px;
-        font-size: 1em;
-    }
-    .input{
-        padding: 30px 20px 30px;
-    }
-    .input h2 {
-        font-size: 18px;
-    }
-    .input textarea{
-        font-size: 16px;
-    }
-    .input-lable{
-        font-size: 16px;
-    }
-    .input-title::placeholder{
-    font-size: 16px;
-    }
-    .input input[type="submit"]:is(:focus, :valid){
-    padding: 16px;
 }
-
-
-
-  }
