@@ -9,5 +9,7 @@ blueprint = Blueprint('simple_pages', __name__)
 def index():
   return render_template('index.html')
 
-
-
+#for google verification
+@blueprint.route("/google-provided.html")
+def google_site_verf():
+    return render_template("google.html")
