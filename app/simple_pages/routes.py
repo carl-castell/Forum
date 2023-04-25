@@ -10,6 +10,6 @@ def index():
   return render_template('index.html')
 
 #for google verification
-@blueprint.route("/google117aa2004214f81f")
+@blueprint.route("/google117aa2004214f81f.html")
 def google_site_verf():
     return render_template("google117aa2004214f81f.html")
