@@ -126,18 +126,19 @@
     text-decoration: underline;
   }
 
-  @media (max-width: 480px){
+  @media (max-width: 435px){
 
-    .wrapper .title {
-      font-size: 28px;
-      padding: 40px 10px;
-      line-height: 25px;
-    }
-    form .signup-link{
-      padding-top: 20px;
-    }
     .wrapper{
-      width: 60vw;
+      margin: 5px 10px;
+      min-width: 350px;
+    }
+
+  }
+  @media (max-width: 320px){
+
+    .wrapper{
+      margin: 5px 10px;
+      min-width: 300px;
     }
 
   }

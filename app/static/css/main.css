@@ -17,9 +17,8 @@ footer{
     left: 0;
     width: 100%;
     height: 40px;
-    margin-top: 20px;
-    background:rgb(11, 70, 121);
     font-size: 18px;
+    background:rgb(6, 29, 40);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,8 +73,8 @@ nav li{
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    color: #fff;
     font-size: 18px;
+    color: #fff;
 }
 .navbar a{
     
@@ -263,7 +262,6 @@ span {
     color: #fff;
     font-family: monospace;
     font-weight: bold;
-    padding: 5px;
 }
 .input a:hover{
     color: red;
@@ -287,7 +285,7 @@ span {
     font-weight: bold;
     margin-bottom: 10px;
     background: rgba(9, 40, 55, 0.135);
-
+    max-width: 100%;
     border-radius: 5px;
     padding: 5px 10px;
     width: max-content;
@@ -313,7 +311,7 @@ span {
     display: block;
 }
 .input{
-    background: rgba(11, 69, 121, 0.543);
+    background: rgba(9, 40, 55, 0.135);
     border-radius: 10px;
     padding: 10px;
     display: block;
@@ -322,7 +320,7 @@ span {
   }
 
 .input h2 {
-    color: #fff;
+    color: black;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -347,7 +345,7 @@ span {
   }
 
 .input-lable{
-    color: #fff;
+    color: black;
     font-weight: bold;
     font-size: 16px;
     font-family: monospace;
@@ -418,6 +416,7 @@ textarea::-webkit-scrollbar{
 
 /* first mobile brakpoint */
 @media(max-width:768px){
+    /* navbar */
     .hamburger{
         display: block;
     }
@@ -448,4 +447,229 @@ textarea::-webkit-scrollbar{
     .nav-menu.active{
         left: 0;
     }
+    .navbar.active{
+        position: fixed;
+        background-color: rgb(6, 29, 40);
+        top: 0;
+        width: 100%;
+    }
+    .content-wrapper{
+        width: 90%;
+        margin-top: 15px;
+    }
+    footer{
+        height: 35px;
+        font-size: 16px;
+    }
+    .navbar{
+        min-height: 70px;
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+    .reply p{
+        font-size: 14px;
+    }
+    .reply h3{
+        font-size: 16px;
+    }
+    .reply{
+        margin: 8px;
+    }
+    .show-replies{
+        padding: 5px;
+        margin: 10px;
+    }
+    .topic-list{
+        padding: 15px;
+    }
+    .show-topic{
+        padding: 10px;
+        margin: 10px;
+    }
+    .show-topic p{
+        font-size: 14px;
+    }
+    .show-topic h2{
+        font-size: 18px;
+        margin-bottom: 8px;
+        padding: 5px 10px;
+        border: 3px solid indigo;
+    }
+    .input{
+        margin: 12px;
+        border-radius: 8px;
+    }
+    .input-lable{
+        font-size: 16px;
+    }
+    .input-title::placeholder{
+        font-size: 14px;   
+    }
+    .input input[type="submit"]{
+        margin-top: 8px;
+        margin-left: 4px;
+    }
+    .input textarea{
+        height: 45px;
+        padding: 15px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .button-link{
+        margin: 25px;
+    }
+    .button-link-edit a{
+        padding: 5px;
+        font-size: 14px;
+    }
+    .input a{
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+@media(max-width:425px){
+    .content-wrapper{
+        width: 95%;
+        border-radius: 6px;
+    }
+    footer{
+        height: 28px;
+        font-size: 14px;
+    }
+    .navbar{
+        min-height: 70px;
+        padding: 15px 20px 20px;
+        font-size: 16px;
+    }
+    .reply p{
+        font-size: 12px;
+    }
+    .reply h3{
+        font-size: 13px;
+    }
+    .reply{
+        margin: 5px;
+    }
+    .show-replies{
+        padding: 5px;
+        margin: 8px;
+    }
+    .topic-list{
+        padding: 6px;
+    }
+    .show-topic{
+        padding: 10px;
+        margin: 8px;
+    }
+    .show-topic p{
+        font-size: 12px;
+    }
+    .show-topic h2{
+        font-size: 16px;
+        margin-bottom: 8px;
+        padding: 5px 10px;
+        border: 3px solid indigo;
+    }
+    .input{
+        margin: 10px;
+    }
+    .input-lable{
+        font-size: 14px;
+    }
+    .input-title::placeholder{
+        font-size: 12px;   
+    }
+    .input input[type="submit"]{
+        margin-top: 8px;
+        margin-left: 4px;
+    }
+    .input textarea{
+        height: 40px;
+        padding: 15px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    .button-link-edit a{
+        padding: 5px;
+        font-size: 14px;
+    }
+    .input a{
+        font-size: 14px;
+        padding: 5px;
+    }
+    
+}
+
+@media(max-width:320px){
+    .content-wrapper{
+        width: 98%;
+    }
+    footer{
+        height: 20px;
+        font-size: 10px;
+    }
+    .navbar{
+        min-height: 70px;
+        padding: 15px 15px 15px;
+        font-size: 12px;
+    }
+    .reply p{
+        font-size: 9px;
+    }
+    .reply h3{
+        font-size: 11px;
+    }
+    .reply{
+        margin: 6px;
+    }
+    .show-replies{
+        padding: 2px;
+        margin: 5px;
+    }
+    .topic-list{
+        padding: 6px;
+    }
+    .show-topic{
+        padding: 10px;
+        margin: 5px;
+    }
+    .show-topic p{
+        font-size: 10px;
+    }
+    .show-topic h2{
+        font-size: 12px;
+        margin-bottom: 8px;
+        padding: 5px 10px;
+        border: 3px solid indigo;
+    }
+    .input{
+        margin: 6px;
+    }
+    .input-lable{
+        font-size: 11px;
+    }
+    .input-title::placeholder{
+        font-size: 10px;   
+    }
+    .input input[type="submit"]{
+        margin-top: 5px;
+        font-size: 10px;
+        padding: 5px;
+    }
+    .input textarea{
+        height: 40px;
+        padding: 10px;
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    .button-link-edit a{
+        padding: 5px;
+        font-size: 9px;
+    }
+    .input a{
+        padding: 5px;
+        font-size: 9px;
+    }
+    
 }
