@@ -271,7 +271,7 @@ span {
 
 .show-topic{
     padding: 8px 10px 10px;
-    border: 1px solid #bfbfbf;
+    border: 2px solid indigo;
     border-radius: 8px;
     margin: 15px;
 }
